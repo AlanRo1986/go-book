@@ -1,0 +1,62 @@
+<div class="form">
+    <form id="login">
+        <div class="form-group">
+            <label>标题：</label>
+            <input type="text" name="title" value="">
+        </div>
+
+        <div class="form-group">
+            <label>内容：</label>
+            <textarea class="simpleEditor" name="content" id="content" rows="10" cols="10" style="width: 100%;margin-bottom: 50px;"></textarea>
+        </div>
+
+        <div class="form-group">
+            <input type="button" id="button" value="提交">
+        </div>
+    </form>
+</div>
+
+<style>
+    .form {
+        width: 100%;
+        padding: 50px 0;
+    }
+</style>
+
+<script>
+    console.log(simpleEditor)
+    simpleEditor.init(document.getElementById("content"));
+
+    $("#button").click(function (e) {
+        var data = {
+            title: $("#login").find("input[name='title']").val(),
+            content: simpleEditor.getContextForHtml(),
+            // content: $("#login").find("textarea").val(),
+        }
+        console.log(data)
+
+        if (!data.title || !data.content) {
+            alert("参数错误")
+            return false;
+        }
+
+
+        var request = $.ajax({
+            url: "/save",
+            method: "POST",
+            data: data,
+            dataType: "JSON"
+        });
+
+        request.done(function (res) {
+            console.log(res)
+            alert(res.info);
+            if (res.code == 1) {
+                location.href = "/";
+            }
+        });
+
+
+        return false;
+    })
+</script>

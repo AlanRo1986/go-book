@@ -1,0 +1,49 @@
+<div class="form">
+    <form id="login">
+        <div class="form-group">
+            <label>用户名：</label>
+            <input type="text" name="username" value="">
+        </div>
+
+        <div class="form-group">
+            <label>密码：</label>
+            <input type="text" name="userpwd" value="">
+        </div>
+
+        <div class="form-group">
+            <input type="button" id="button" value="注册">
+        </div>
+    </form>
+</div>
+
+<script>
+    $("#button").click(function (e) {
+        var data = {
+            username: $("#login").find("input[name='username']").val(),
+            userpwd: $("#login").find("input[name='userpwd']").val(),
+        }
+        if (!data.username || !data.userpwd) {
+            alert("参数错误")
+            return false;
+        }
+
+        var request = $.ajax({
+            url: "/doSignUp",
+            method: "POST",
+            data: data,
+            dataType: "JSON"
+        });
+
+        request.done(function (res) {
+            console.log(res)
+            if (res.code == 1) {
+                location.href = "/sign/in";
+            } else {
+                alert(res.info);
+            }
+        });
+
+
+        return false;
+    })
+</script>

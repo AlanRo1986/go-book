@@ -1,0 +1,69 @@
+body{
+    background: #f2f2f2;
+    margin: 0;
+}
+a{}
+.container{
+    margin: 0 auto;
+    max-width: 1000px;
+}
+.container .header{
+    background: #fff;
+    padding: 7px 0;
+    box-shadow: 0px 2px 2px #dedede;
+}
+.navbar-header{
+    width: 30%;
+    float: left;
+    padding: 15px;
+}
+.nav{
+    width: 50%;
+    text-align: right;
+    display: inline-block;
+}
+.nav li{
+    display: inline-block;
+    font-size: 16px;
+    padding: 0 10px;
+}
+.nav li a:hover{
+    background: #00a763;
+    color: white;
+}
+.form{
+    margin: 0 auto;
+    width: 100%;
+    padding: 50px 0;
+    margin-top: 25px;
+    background: #fff;
+    box-shadow: 0 2px 3px #e6e6e6;
+    border-radius: 5px;
+}
+.form .form-group{
+    width: 90%;
+    margin: 0 auto;
+}
+.form .form-group label{
+    display: block;
+    color: #333;
+    padding: 3px;
+}
+.form .form-group input{
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-bottom: 1px solid #c5c5c5;
+    margin-bottom: 25px;
+}
+
+.simpleEditor{
+    width: 100%;
+    min-height: 400px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 25px;
+    max-height: 600px;
+    overflow: auto;
+}
